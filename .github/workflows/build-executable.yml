@@ -29,16 +29,16 @@ jobs:
           $Env:PYINSTALLER_COMPILE_BOOTLOADER = "true"
           pip install --user --force-reinstall --ignore-installed --no-binary :all: pyinstaller==6.11.1
 
-      - name: Create Executable for AIServer
+      - name: Create Executable
         run: |
           pyinstaller .\test.py -y --onedir --clean --console
 
       - name: Run app from dist
         run: |
-          .\dist\test.exe
+          .\dist\test\test.exe
 
       - name: Upload build artifact
         uses: actions/upload-artifact@v3
         with:
-          name: COVAS_NEXT_v${{ env.COMMIT_ID }}
+          name: test
           path: ./dist
