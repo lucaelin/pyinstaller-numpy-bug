@@ -1,0 +1,1 @@
+# pyinstaller-numpy-bug
